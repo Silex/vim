@@ -7758,6 +7758,8 @@ static struct event_name
     {"WinEnter",	EVENT_WINENTER},
     {"WinLeave",	EVENT_WINLEAVE},
     {"VimResized",	EVENT_VIMRESIZED},
+    {"TextDeletePost",	EVENT_TEXTDELETEPOST},
+    {"TextYankPost",	EVENT_TEXTYANKPOST},
     {NULL,		(event_T)0}
 };
 

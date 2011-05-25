@@ -2022,6 +2022,10 @@ op_delete(oap)
 
     msgmore(curbuf->b_ml.ml_line_count - old_lcount);
 
+    ++textlock;
+    apply_autocmds(EVENT_TEXTDELETEPOST, NULL, NULL, FALSE, curbuf);
+    --textlock;
+
 #ifdef FEAT_VIRTUALEDIT
 setmarks:
 #endif
@@ -3232,6 +3236,13 @@ op_yank(oap, deleting, mess)
     }
 # endif
 #endif
+
+    if(mess && !deleting)
+    {
+        ++textlock;
+        apply_autocmds(EVENT_TEXTYANKPOST, NULL, NULL, FALSE, curbuf);
+        --textlock;
+    }
 
     return OK;
 

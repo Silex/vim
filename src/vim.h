@@ -1306,6 +1306,8 @@ enum auto_event
     EVENT_SHELLFILTERPOST,	/* after ":1,2!cmd", ":w !cmd", ":r !cmd". */
     EVENT_TEXTCHANGED,		/* text was modified */
     EVENT_TEXTCHANGEDI,		/* text was modified in Insert mode*/
+    EVENT_TEXTDELETEPOST,	/* after a delete command was done (dd, dw, D) */
+    EVENT_TEXTYANKPOST,		/* after a yank command was done (yy, yw, Y) */
     NUM_EVENTS			/* MUST be the last one */
 };
 
